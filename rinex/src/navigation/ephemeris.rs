@@ -949,7 +949,7 @@ fn parse_orbits(
              * In NAV RINEX, unresolved data fields are either
              * omitted (handled previously) or put a zeros
              */
-            if !content.contains(".000000000000E+00") {
+            if !content.contains("0.000000000000E+00") {
                 if let Some((key, token)) = fields.get(key_index) {
                     //println!(
                     //    "Key \"{}\"(index: {}) | Token \"{}\" | Content \"{}\"",
