@@ -168,6 +168,27 @@ impl OrbitItem {
     pub fn as_f64(&self) -> Option<f64> {
         match self {
             OrbitItem::F64(f) => Some(*f),
+            OrbitItem::I8(i) => Some(*i as f64),
+            OrbitItem::U8(u) => Some(*u as f64),
+            OrbitItem::U32(u) => Some(*u as f64),
+            OrbitItem::Health(h) => {
+                let v = h.clone() as u32;
+                Some(v as f64)
+            },
+            OrbitItem::GloHealth(h) => {
+                let v = h.clone() as u32;
+                Some(v as f64)
+            },
+            OrbitItem::GeoHealth(h) => {
+                let v = h.clone() as u32;
+                Some(v as f64)
+            },
+            OrbitItem::IrnssHealth(h) => {
+                let v = h.clone() as u32;
+                Some(v as f64)
+            },
+            OrbitItem::GalHealth(h) => Some(h.bits() as f64),
+            OrbitItem::GloStatus(h) => Some(h.bits() as f64),
             _ => None,
         }
     }
